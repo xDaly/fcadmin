@@ -1,67 +1,82 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
+<!doctype html>
+<html>
 
-            <h2>Interface Admin</h2>
-            <table id="tblData" class="table table-striped table-hover table-bordered table-condensed ">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Telephone</th>
-                        <th>Département</th>
-                        <th>Adresse</th>
-                        <th>Ville</th>
-                        <th>Code Postale</th>
-                        <th>Maison</th>
-                        <th>Type De Combles</th>
-                        <th>Surface Combles</th>
-                        <th>Surface Sous Sol</th>
-                        <th>Type de Chauffage</th>
-                        <th>N° de personnes</th>
-                        <th>Montant De Reference </th>
-                        <th>Reference De L'avis</th>
-                        <th>Numero Fiscale </th>
-                        <th>N° de dossier</th>
-                    </tr>
-                </thead>
-                <section class="get">
-                    <h3>Get Data</h3>
-                    <a href="/get-data">LOAD DATA</a>
-                    <div>
-                        <tbody class="item">
-                            <% for(var i=0; i<items.length; i++) { %>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
 
-                            <tr>
-                                <td> <%=  items[i].nom %></td>
-                                <td><%=  items[i].prenom %></td>
-                                <td><%=  items[i].telephone %></td>
-                                <td><%=  items[i].departement %></td>
-                                <td><%=  items[i].adresse %></td>
-                                <td><%=  items[i].ville %></td>
-                                <td><%=  items[i].cp %></td>
-                                <td><%=  items[i].maison %></td>
-                                <td><%=  items[i].typedecomble %></td>
-                                <td><%=  items[i].surfacecomble %></td>
-                                <td><%=  items[i].surfacesoussol %></td>
-                                <td><%=  items[i].typechauffage %></td>
-                                <td><%=  items[i].nombredepersonne %></td>
-                                <td><%= items[i].mrf %></td>
-                                <td> <%= items[i].rdv %></td>
-                                <td> <%= items[i].nf %></td>
+                <h2>Interface Admin</h2>
+                <table id="tblData" class="table table-striped table-hover table-bordered table-condensed ">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Telephone</th>
+                            <th>Département</th>
+                            <th>Adresse</th>
+                            <th>Ville</th>
+                            <th>Code Postale</th>
+                            <th>Maison</th>
+                            <th>Type De Combles</th>
+                            <th>Surface Combles</th>
+                            <th>Surface Sous Sol</th>
+                            <th>Type de Chauffage</th>
+                            <th>N° de personnes</th>
+                            <th>Montant De Reference </th>
+                            <th>Reference De L'avis</th>
+                            <th>Numero Fiscale </th>
+                            <th>N° de dossier</th>
+                        </tr>
+                    </thead>
+                    <section class="get">
+                        <h3>Get Data</h3>
+                        <a href="/get-data">LOAD DATA</a>
+                        <div>
+                            <tbody class="item">
+                                <% for(var i=0; i<items.length; i++) { %>
+
+                                <tr>
+                                    <td> <%=  items[i].nom %></td>
+                                    <td><%=  items[i].prenom %></td>
+                                    <td><%=  items[i].telephone %></td>
+                                    <td><%=  items[i].departement %></td>
+                                    <td><%=  items[i].adresse %></td>
+                                    <td><%=  items[i].ville %></td>
+                                    <td><%=  items[i].cp %></td>
+                                    <td><%=  items[i].maison %></td>
+                                    <td><%=  items[i].typedecomble %></td>
+                                    <td><%=  items[i].surfacecomble %></td>
+                                    <td><%=  items[i].surfacesoussol %></td>
+                                    <td><%=  items[i].typechauffage %></td>
+                                    <td><%=  items[i].nombredepersonne %></td>
+                                    <td><%= items[i].mrf %></td>
+                                    <td> <%= items[i].rdv %></td>
+                                    <td> <%= items[i].nf %></td>
 
 
-                                <td><%= items[i]._id %></td>
-                            </tr>
+                                    <td><%= items[i]._id %></td>
+                                </tr>
 
-                            <% } %>
-                        </tbody>
-                    </div>
-                </section>
-            </table>
+                                <% } %>
+                            </tbody>
+                        </div>
+                    </section>
+                </table>
 
-            <button onclick="exportTableToExcel('tblData', 'members-data')">Export Table Data To Excel File</button>
+                <button onclick="exportTableToExcel('tblData', 'members-data')">Export Table Data To Excel File</button>
+            </div>
         </div>
     </div>
-</div>
-<script src="../public/javascripts/main.js"></script>
+    <script src="../public/javascripts/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script>
+        $(document).ready(function () {
+            $('#tblData').DataTable();
+        });
+    </script>
+</body>
+
+</html>
